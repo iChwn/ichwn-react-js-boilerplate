@@ -23,8 +23,9 @@ class App extends Component {
           <ToastContainer containerId="mainToast" />
           <React.Suspense fallback={loading()}>
             <Switch>
+              <Route path="/login" exact name="login" render={(props) => <Login {...props} />}/>
               <RouteAuthenticated
-                path="/home"
+                path="/"
                 name="Dashboard"
                 render={(props) => (
                   <DefaultLayout
@@ -35,7 +36,7 @@ class App extends Component {
                 )}
               />
               <RouteHome
-                path="/"
+                path="/login"
                 exact
                 name="root"
                 component={(props) => (

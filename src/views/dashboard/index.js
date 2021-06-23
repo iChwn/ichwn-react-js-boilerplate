@@ -1,14 +1,11 @@
-import { Button, Container } from "@material-ui/core";
+import { Container } from "@material-ui/core";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
+import Button from "../../components/Button/BasicButton";
 import * as Actions from '../../module/counter/actions';
 
 class Dashboard extends Component {
-  
-  componentDidMount() {
-    console.log(this.props)
-  }
   
   render() {  
     return (
@@ -26,6 +23,18 @@ class Dashboard extends Component {
             }}
           >
             Remove localStorage
+        </Button>
+        <Button
+            mt={2}
+            type="button"
+            fullWidth
+            variant="contained"
+            color="primary"
+            onClick={_ => {
+              this.props.history.push('/konfirmasi-data')
+            }}
+          >
+            Konfirmasi Data
         </Button>
       </Container>        
       </div>

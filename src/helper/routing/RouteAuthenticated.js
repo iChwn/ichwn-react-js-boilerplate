@@ -8,7 +8,7 @@ const RouteAuthenticated = ({component: Component, render, auth, ...res}) => {
   const isLoggedIn = false
   const authData = localStorage.getItem('apps:auth')
   if (!authData) {
-    return <Redirect from="/:any" to="/"/>
+    return <Redirect from="/:any" to="/login"/>
   }
   return <Route {...res} render={render ? render : props => <Component {...props}/>}/>
 }
@@ -18,7 +18,7 @@ const RouteHome = ({component: Component, render, auth, ...res}) => {
   // const isLoggedIn = false
   const authData = localStorage.getItem('apps:auth')
   if (authData) {
-    return <Redirect from="/:any" to="/home"/>
+    return <Redirect from="/:any" to="/"/>
   }
   return <Route {...res} render={render ? render : props => <Component {...props}/>}/>
 }

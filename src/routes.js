@@ -20,14 +20,30 @@ const Dashboard = Loadable({
   },
 });
 
+const KonfirmasiData = Loadable({
+  loader: () => import("./views/konfirmasi-data"),
+  loading: Loading,
+  render(loaded, props) {
+    let Component = loaded.default;
+    return <Component {...props} />;
+  },
+});
+
 
 const routes = [
   {
-    path: "/home",
+    path: "/",
     exact: true,
     name: "Dashboard",
     component: Dashboard,
     routeName: "dashboard",
+  },
+  {
+    path: "/konfirmasi-data",
+    exact: true,
+    name: "Konfirmasi Data",
+    component: KonfirmasiData,
+    routeName: "konfirmasi-data",
   },
   {
     path: "/login",
