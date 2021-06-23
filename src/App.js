@@ -15,7 +15,7 @@ const NotFoundPage = React.lazy(() => import('./views/404'))
 
 class App extends Component {
   render() {
-    const auth = localStorage.getItem("enterprise:auth");
+    const auth = localStorage.getItem('apps:auth');
 
     return (
       <HashRouter>
@@ -23,7 +23,14 @@ class App extends Component {
           <ToastContainer containerId="mainToast" />
           <React.Suspense fallback={loading()}>
             <Switch>
-              <Route path="/login" exact name="login" render={(props) => <Login {...props} />}/>
+              <RouteHome
+                path="/login"
+                exact
+                name="root"
+                component={(props) => (
+                  <Login cookies={this.props.cookies} />
+                )}
+              />
               <RouteAuthenticated
                 path="/"
                 name="Dashboard"
@@ -33,14 +40,6 @@ class App extends Component {
                     {...props}
                     cookies={this.props.cookies}
                   />
-                )}
-              />
-              <RouteHome
-                path="/login"
-                exact
-                name="root"
-                component={(props) => (
-                  <Login cookies={this.props.cookies} />
                 )}
               />
               <Route exact name="404" render={(props) => <NotFoundPage/>} />
