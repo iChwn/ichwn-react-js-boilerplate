@@ -125,13 +125,18 @@ function SignIn(props) {
       <Box mt={8}>
         <Copyright />
       </Box>
-      <div>Count: {props.count}</div>
-			<button onClick={() => props.increaseCounter()}>
-			  Increase Count
-      </button>
-			<button onClick={() => props.decreaseCounter()}>
-			  Decrease Count
-      </button>
+      <div className="flex flex-col items-center">
+        <h1>Redux test</h1>
+        <div>Count: {props.count}</div>
+        <div>
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => props.increaseCounter()}>
+            Increase Count
+          </button>
+          <button className="ml-3 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onClick={() => props.decreaseCounter()}>
+            Decrease Count
+          </button>
+        </div>
+      </div>
     </Container>
   );
 }
