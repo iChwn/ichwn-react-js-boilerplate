@@ -53,6 +53,9 @@ const useStyles = makeStyles((theme) => ({
 function SignIn(props) {
   const classes = useStyles();
   let history = useHistory();
+  React.useEffect(_ => {
+    props.getApiData()
+  },[props])
 
   function handleClick() {
     history.push("/home");
