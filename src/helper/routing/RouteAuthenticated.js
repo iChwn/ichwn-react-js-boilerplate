@@ -5,7 +5,7 @@ import withContext from "./withContext";
 
 const RouteAuthenticated = ({component: Component, render, auth, ...res}) => {
   // console.log("Rout Auth")
-  const isLoggedIn = false
+  // const isLoggedIn = false
   const authData = localStorage.getItem('apps:auth')
   if (!authData) {
     return <Redirect from="/:any" to="/login"/>

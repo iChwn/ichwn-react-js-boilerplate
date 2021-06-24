@@ -20,10 +20,10 @@ const getCookies = (name) => {
   let splitCookies = document.cookie.split(";");
   for (let i = 0; i < splitCookies.length; i++) {
     let cookiesLoop = splitCookies[i];
-    while (cookiesLoop.charAt(0) == " ") {
+    while (cookiesLoop.charAt(0) === " ") {
       cookiesLoop = cookiesLoop.substring(1, cookiesLoop.length);
     }
-    if (cookiesLoop.indexOf(cookiesName) == 0) {
+    if (cookiesLoop.indexOf(cookiesName) === 0) {
       return cookiesLoop.substring(cookiesName.length, cookiesLoop.length);
     }
   }
@@ -81,3 +81,4 @@ const getSchoolList = (response, filter) => {
 };
 
 export { setCookies, getCookies, getDaysRange, getCountryList, getSchoolList };
+
