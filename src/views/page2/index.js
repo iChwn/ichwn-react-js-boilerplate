@@ -26,7 +26,7 @@ class KonfirmasiData extends Component {
   render() {
     return (
       <Container>
-        <span>Anjay</span>
+        <span>This is 2nd Screen</span>
       </Container>
     )
   }

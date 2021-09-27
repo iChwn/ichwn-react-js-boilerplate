@@ -21,7 +21,7 @@ const Dashboard = Loadable({
 });
 
 const KonfirmasiData = Loadable({
-  loader: () => import("./views/konfirmasi-data"),
+  loader: () => import("./views/page2"),
   loading: Loading,
   render(loaded, props) {
     let Component = loaded.default;

@@ -8,7 +8,6 @@
 //   AppSidebarMinimizer,
 //   AppSidebarNav
 // } from "@coreui/react";
-import { Container } from '@material-ui/core';
 import React, { Component, Suspense } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 // routes config
@@ -65,7 +64,7 @@ class DefaultLayout extends Component {
           </AppSidebar> */}
           <main className="main">
             {/* <AppBreadcrumb appRoutes={routes} /> */}
-            <Container fluid>
+            <div>
               <Suspense fallback={this.loading()}>
                 {routes.length !== 0 && (
                   <Switch>
@@ -84,7 +83,7 @@ class DefaultLayout extends Component {
                   </Switch>
                 )}
               </Suspense>
-            </Container>
+            </div>
           </main>
         </div>
       </div>
