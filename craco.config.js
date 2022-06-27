@@ -1,10 +1,17 @@
+const { when } = require("@craco/craco");
+
+const dotenvCra = require("dotenv-cra");
+
+dotenvCra.config();
+
 module.exports = {
-  style: {
-    postcss: {
-      plugins: [
-        require('tailwindcss'),
-        require('autoprefixer'),
-      ],
-    },
+  babel: {
+    plugins: [
+      ...when(
+        process.env.REACT_APP_ENV !== "develop",
+        () => ["transform-remove-console"],
+        []
+      ),
+    ],
   },
-}
+};
