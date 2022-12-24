@@ -5,7 +5,7 @@ import { useMutation } from "react-query";
 import { getErrorHandlerData } from "utility/requestHelper/requestHelper";
 
 
-export const useCustomMutationReactQuery = (
+const useCustomMutationReactQuery = (
   onFetch,
   options = { isStartOnInit: false, onError: () => {} }
 ) => {
@@ -50,3 +50,5 @@ export const useCustomMutationReactQuery = (
     startFetch,
   };
 };
+
+export default useCustomMutationReactQuery
