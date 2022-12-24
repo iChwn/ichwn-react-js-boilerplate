@@ -1,5 +1,5 @@
 const apiList = {
-  sampleApi: "/sample/api",
+  sampleApi: "/todos",
 };
 
 export default apiList;
