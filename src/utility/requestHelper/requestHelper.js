@@ -42,7 +42,7 @@ export const getErrorHandlerData = (res) => {
 
 /**
  * Get header data
- * @param {boolean} withAuth if true then will add key Authorization into header with value from vidioCookie.token
+ * @param {boolean} withAuth if true then will add key Authorization into header with value from user.token
  * @returns
  */
 export const getHeaderData = (withAuth) => {
