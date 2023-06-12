@@ -5,7 +5,7 @@ const isObject = (obj) => obj !== null && typeof obj === 'object'
 
 const isInteger = (obj) => String(Math.floor(Number(obj))) === obj;
 
-const getIn = (obj, key, def, p = 0) => {
+const getIn = (obj, key, def = 0, p = 0) => {
   const path = _.toPath(key);
   while (obj && p < path.length) {
     obj = obj[path[p++]];

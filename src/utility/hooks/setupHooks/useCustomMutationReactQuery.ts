@@ -6,8 +6,8 @@ import { getErrorHandlerData } from "utility/requestHelper/requestHelper";
 
 
 const useCustomMutationReactQuery = (
-  onFetch,
-  options = { isStartOnInit: false, onError: () => {} }
+  onFetch:any,
+  options:any = { isStartOnInit: false, onError: () => {} }
 ) => {
   const { isStartOnInit, onError } = options;
 
@@ -17,7 +17,7 @@ const useCustomMutationReactQuery = (
   const result = useMutation(onFetch);
   const { mutate, data: response, isLoading } = result;
 
-  const startFetch = async (param = null, onSuccess = () => {}) => {
+  const startFetch = async (param:any = null, onSuccess:any = () => {}) => {
     setIsShortLoading(true);
     setTimeout(() => {
       setIsShortLoading(false);

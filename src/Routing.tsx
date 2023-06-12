@@ -11,9 +11,9 @@ const Router = () => {
     <BrowserRouter>
       <Suspense fallback={<div>Loading... </div>}>
         <Routes>
-          <Route path={routeUrl.home} exact element={<HomePage/>} />
-          <Route path={routeUrl.authentication} exact element={<AuthPage/>} />
-          <Route path={routeUrl.sampleForm} exact element={<SampleFormPage/>} />
+          <Route path={routeUrl.home} element={<HomePage/>} />
+          <Route path={routeUrl.authentication} element={<AuthPage/>} />
+          <Route path={routeUrl.sampleForm} element={<SampleFormPage/>} />
         </Routes>
       </Suspense>
     </BrowserRouter>

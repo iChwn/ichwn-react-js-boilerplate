@@ -1,7 +1,8 @@
-import React from "react";
-import Router from "./Routing";
+import './App.css';
+import Router from 'Routing';
 
 function App() {
+  console.log("WKWKKW")
   return (
     <div className="w-full h-full">
       <Router />

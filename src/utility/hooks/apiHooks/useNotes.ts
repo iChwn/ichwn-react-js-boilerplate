@@ -3,7 +3,7 @@ import { useCustomMutationReactQuery } from "../setupHooks";
 import { getNotesList, updateNotesList } from "utility/apiProcess/notesApi";
 
 export const useNote = () => {
-  const [notesList, setNotesList] = useState({})
+  const [notesList, setNotesList] = useState<any>({})
 
   const { isLoading: isGetNotesLoading, decryptedData, startFetch: getListNotes} = useCustomMutationReactQuery(
     getNotesList,

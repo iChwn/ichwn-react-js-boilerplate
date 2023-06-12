@@ -10,9 +10,10 @@ import sampleMiddleware from "./middleware/sampleMiddleware";
 export const history =
   process.env.NODE_ENV === "test"
     ? createBrowserHistory()
-    : createBrowserHistory({ basename: "/?urlData=" });
+    : /* @ts-ignore */ 
+    createBrowserHistory({ basename: "/?urlData=" });
 
-export default function configureStore(preloadedState) {
+export default function configureStore(preloadedState:any) {
   const store = createStore(
     rootReducer(history),
     preloadedState,

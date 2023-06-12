@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from "react-redux";
 import { QueryClient, QueryClientProvider } from "react-query";
 import "./assets/css/tailwind.css";
-import "./index.css";
+import './index.css';
 
 // react query config
 const queryClient = new QueryClient({
@@ -20,10 +20,12 @@ const queryClient = new QueryClient({
   },
 });
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement
+);
 root.render(
   <React.StrictMode>
-    <Provider store={store()}>
+    <Provider store={store({})}>
       <QueryClientProvider client={queryClient}>
         <App />
       </QueryClientProvider>
