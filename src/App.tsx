@@ -1,11 +1,13 @@
+import { SimpleTemplate } from 'components';
 import './App.css';
 import Router from 'Routing';
 
 function App() {
-  console.log("WKWKKW")
   return (
     <div className="w-full h-full">
-      <Router />
+      <SimpleTemplate>
+        <Router />
+      </SimpleTemplate>
     </div>
   );
 }

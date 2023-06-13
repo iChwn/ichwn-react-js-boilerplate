@@ -1,3 +1,3 @@
-import * as IconList from "assets/image/icon";
+import * as icon_list from "assets/image/icon";
 
-export { IconList };
+export { icon_list };

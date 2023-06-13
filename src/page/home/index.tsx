@@ -13,6 +13,7 @@ const HomePage = () => {
   const { getNotes, isGetNotesLoading, notesList, updateNotes } = useNote()
   
   useEffect(() => {
+    if(!_.isEmpty(notesList))
     console.log(notesList)
   }, [isGetNotesLoading, notesList])
 

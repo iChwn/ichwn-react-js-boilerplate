@@ -1,30 +1,66 @@
-import React from "react";
-import InputSelect from "../../atoms/input/inputSelect";
-import TextInput from "../../atoms/input/inputText";
-import PropTypes from "prop-types";
-import PasswordInput from "../../atoms/input/inputPassword";
+import TextInput from '../../atoms/input/inputText';
+import PropTypes from 'prop-types';
+import PasswordInput from '../../atoms/input/inputPassword';
+import InputSelect from '../../atoms/input/inputSelect';
+import TextAreaInput from '../../atoms/input/inputTextArea';
+import InputDateTime from '../../atoms/input/inputDateTime';
+import InputFile from '../../atoms/input/inputFile';
+import OnlyLabel from '../../atoms/input/onlylabel';
+import InputDateRange from '../../atoms/input/inputDateRange';
+import InputYearMonth from '../../atoms/input/inputYearMonth';
 
-// sample formData
-// const formData = [
-//   {
-//     title: "Country ID",
-//     placeholder: "e.g ID",
-//     type: "text",
-//     value: ""
-//   }
-// ]
+type ArrayType = {
+  title: string;
+  placeholder: string;
+  type: string;
+  value: any;
+  name: string;
+  options?: Array<any>;
+  rules: any;
+  error: string;
+  hidden?: boolean;
+  note?: string | React.ReactNode;
+  disabled?: boolean;
+  rightAddon?: React.ReactNode;
+  onSelectSearch?: (inputValue: string, callback: (options: any) => void) => void;
+}
 
-const InputForm = ({formData, onChange, containerStyle}) => {
+type InputFormType = {
+  formData: Array<ArrayType>;
+  targetMutation: Array<ArrayType>;
+  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>, mutation:Array<ArrayType>, setTarget:Function) => void;
+  setTargetMutation: (e:Array<any>) => void;
+  containerStyle: string;
+}
+
+const InputForm = ({formData, targetMutation, setTargetMutation, onChange, containerStyle}: InputFormType) => {
+  const handleDataChange = (event:any) => {
+    onChange(event, targetMutation, setTargetMutation)
+  }
+
   return (
     <div className={containerStyle}>
       {formData.map((result, index) => {
-        return (
-          <div key={index} className="w-full">
-            <div className="font-md text-black font-normal mb-[2px]">{result.title}</div>
-            {(result.type === "text" || result.type === "number") && <TextInput onChange={onChange} data={result}/>}
-            {result.type === "password" && <PasswordInput onChange={onChange} data={result}/>}
-            {result.type === "select" && <InputSelect onChange={onChange} data={result}/>}
-            {result.error && (<label className="text-sm text-red-600">{result.error}</label>)}
+        return !result.hidden && (
+          <div key={index} className='w-full'>
+            {result.type !== 'only-label' && <div className='text-[14px] text-dark-green font-semibold mb-[2px]'>{result.title}</div>}
+            {(result.type === 'text' || result.type === 'number' ) && <TextInput onChange={handleDataChange} data={result}/>}
+            {(result.type === 'file') && <InputFile onChange={handleDataChange} data={result}/>}
+            {result.type === 'textarea' && <TextAreaInput onChange={handleDataChange} data={result}/>}
+            {result.type === 'password' && <PasswordInput onChange={handleDataChange} data={result}/>}
+            {result.type === 'select' && <InputSelect onChange={handleDataChange} data={result}/>}
+            {result.type === 'date-time-picker' && <InputDateTime onChange={handleDataChange} data={result}/>}
+            {result.type === 'date-range' && <InputDateRange onChange={handleDataChange} data={result}/>}
+            {result.type === 'year-month' && <InputYearMonth onChange={handleDataChange} data={result}/>}
+            {result.type === 'only-label' && <OnlyLabel data={result}/>}
+            {/* {result.type === 'radio' && <InputRadio onChange={onChange} {...result}/>} */}
+            {/* {result.type === 'date-range' && <InputRange onChange={onChange} data={result}/>}
+            {result.type === 'date-year' && <InputYear onChange={onChange} data={result}/>}
+            {result.type === 'date-month' && <InputMonth onChange={onChange} data={result}/>} */}
+            <div className='flex flex-col'>
+              {result.note && (<label className='text-sm text-gray-500'>{result.note}</label>)}
+              {result.error && (<label className='text-sm text-red-600'>{result.error}</label>)}
+            </div>
           </div>
         )
       })}
@@ -43,13 +79,13 @@ InputForm.defaultProps = {
   onChange: () => {},
   formData: [
     {
-      title: "",
-      placeholder: "",
-      type: "",
-      value: ""
+      title: '',
+      placeholder: '',
+      type: '',
+      value: ''
     }
   ],
-  containerStyle: "flex flex-col gap-y-4 w-full"
+  containerStyle: 'flex flex-col gap-y-4 w-full'
 };
 
 export default InputForm;
