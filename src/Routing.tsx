@@ -23,7 +23,7 @@ const Router = () => {
   return (
     <Suspense fallback={<div>Loading... </div>}>
       <Routes>
-        <Route path="/" element={<Navigate to={routeUrl.peranIzin} replace />} />
+        {/* <Route path="/" element={<Navigate to={routeUrl.peranIzin} replace />} /> */}
         <Route path={routeUrl.peranIzin} index element={<PeranDanIzin/>} />
         <Route path={routeUrl.socialMediaAccount} index element={<SocialMediaAccount/>} />
         <Route path={routeUrl.marketplace} index element={<Marketplace/>} />

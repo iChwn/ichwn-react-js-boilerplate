@@ -5,6 +5,7 @@ import { applyMiddleware, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import sampleMiddleware from "./middleware/sampleMiddleware";
+import logger from "./middleware/logger";
 
 // export const history = createBrowserHistory({basename: "/?urlData=" })
 export const history =
@@ -17,7 +18,7 @@ export default function configureStore(preloadedState:any) {
     rootReducer(history),
     preloadedState,
     composeWithDevTools(
-      applyMiddleware(thunk, sampleMiddleware)
+      applyMiddleware(logger, sampleMiddleware)
     )
   );
   return store;

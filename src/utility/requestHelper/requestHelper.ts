@@ -60,9 +60,8 @@ export const getSuccessHandlerData = (result:any) => {
  * @param {boolean} withAuth if true then will add key Authorization into header with value from user.token
  * @returns
  */
-export const getHeaderData = (token:string, headers:object) => {
+export const getHeaderData = (headers:object) => {
   const header = {
-    "token": token,
     ...headers
   };
 
@@ -75,16 +74,16 @@ export const getHeaderData = (token:string, headers:object) => {
  * @returns
  */
 export const createRequestParams = (apiData:any) => {
-  const { method, data = {}, params = {}, token = '', headers = {}} = apiData;
+  const { method, data = {}, params = {}, headers = {}} = apiData;
   const requestParams:any = {
     method,
-    headers: getHeaderData(token, headers),
+    headers: getHeaderData(headers),
   };
 
   // assign data to request body
-  if (!_.isEmpty(data)) {
+  // if (!_.isEmpty(data)) {
     requestParams.data = data;
-  }
+  // }
   // assign params to request params
   if (!_.isEmpty(params)) {
     requestParams.params = params;
@@ -98,7 +97,7 @@ export const createRequestParams = (apiData:any) => {
  * @returns
  */
 export const getInstance = (override_base_url: string) => {
-  let app_url = config.UrlServer;
+  let app_url = config.UrlServer
   if(override_base_url !== "") {
     app_url = override_base_url
   }

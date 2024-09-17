@@ -1,4 +1,5 @@
 const PeranDanIzin = () => {
+  console.log("wkwkwk")
   return (
     <div>
       Peran Dan Izin
