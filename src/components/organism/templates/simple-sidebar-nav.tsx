@@ -2,11 +2,12 @@
 import { SimpleAside, SimpleNavbar } from 'components'
 import simple_sidebar_menu from 'constant/simpleSidebarMenu'
 import { useReducer } from 'react'
+import { Outlet } from 'react-router'
 import SimpleSidebarContext from 'utility/context/simpleSidebar'
 import simpleSidebarReducer from 'utility/context/simpleSidebar/reducer'
 
 
-const SimpleTemplate = ({children}) => {
+const SimpleTemplate = () => {
 	// const [collapsed, setCollapsed] = useState(false)
 	// const [toggled, setToggled] = useState(false)
 
@@ -32,7 +33,7 @@ const SimpleTemplate = ({children}) => {
 				<SimpleAside />
 				<div className='p-4 sm:ml-64 h-full'>
 					<div className='pt-[90px] h-full'>
-						{children}
+						<Outlet />
 					</div>
 				</div>
 			</div>

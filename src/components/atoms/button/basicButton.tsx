@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import PropTypes from 'prop-types';
 
-const BaseButton = ({onClick, title, type, addClasses, icon, isDisabled}) => {
+const BaseButton = ({onClick, title, type, addClasses, icon, isDisabled}:any) => {
   const [buttonType, setButtonType] = useState("")
   
   useEffect(() => {

@@ -27,10 +27,10 @@ type ArrayType = {
 
 type InputFormType = {
   formData: Array<ArrayType>;
-  targetMutation: Array<ArrayType>;
+  targetMutation?: Array<ArrayType>;
   onChange: (e: React.ChangeEvent<HTMLTextAreaElement>, mutation:Array<ArrayType>, setTarget:Function) => void;
-  setTargetMutation: (e:Array<any>) => void;
-  containerStyle: string;
+  setTargetMutation?: (e:Array<any>) => void;
+  containerStyle?: string;
 }
 
 const InputForm = ({formData, targetMutation, setTargetMutation, onChange, containerStyle}: InputFormType) => {
